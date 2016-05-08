@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        .even{
+            background-color:gray;
+        }
+        .odd{
+            background:tan;
+        }
+    </style>
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>show, hide, remove</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>firstname</th>
+                    <th>Last name</th>
+                    <th>favourite</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="contact in contacts" data-ng-if="contact.favourite">
+                    <td>{{$index +1}}</td>
+                    <td>{{contact.firstname}}</td>
+                    <td>{{contact.lastname}}</td>
+                    <td>{{contact.favourite}}</td>
+                </tr>
+            </tbody>
+           
+        </table>
+        <button class="" data-ng-click="showContactForm()">Add new Contact</button>
+        <form data-ng-show="toggleNewContact">
+            first Name: <input type="text" /> <br />
+            last Name: <input type="text" /> <br />
+            favourite: <input type="checkbox" /> <br />
+            <button>Submit</button>
+            <button data-ng-click="toggleNewContact = false">cancle</button>
+        </form>
+      
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope) {
+               $scope.contacts = [
+                   { firstname: "ashish", lastname: "mangla", favourite: true },
+                   { firstname: "varun", lastname: "mangla", favourite: true },
+                   { firstname: "Prasant", lastname: "Aggrawal", favourite: false },
+                   { firstname: "rupash", lastname: "pahadi", favourite: true },
+                   { firstname: "mama", lastname: "chacha", favourite: false }
+
+               ];
+               
+               $scope.data = {};
+               $scope.toggleNewContact = false;
+               $scope.showContactForm = function () {
+                   $scope.toggleNewContact = true;
+               }
+            })
+
+        }());
+    </script>
+</body>
+</html>

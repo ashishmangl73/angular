@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>Custom Attribute</h3>
+    <div data-highlight="true">
+        I am DIV
+    </div>
+    <div data-highlight="false">
+        this is second div
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script>
+        $("div[data-highlight = 'true']").css("background", 'blue');
+    </script>
+</body>
+</html>

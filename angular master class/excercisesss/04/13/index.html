@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>Filters</h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Course Name</th>
+                    <th>Category</th>
+                    <th>Timeline</th>
+                    <th>Price</th>
+                    <th>json</th>
+                </tr>
+            </thead>
+            <tr ng-repeat="course in courses">
+                <td>{{$index+1}}</td>
+                <td>{{course.name | uppercase}}</td>
+                <td>{{course.category | lowercase}}</td>
+                <td> {{getTargetDate(course.timeline) | date: 'dd MMM yy'}}</td>
+                <td>{{course.price | currency}}</td>
+                <td>{{course | json}}</td>
+            </tr>
+        </table>
+        
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope, $timeout) {
+            
+               $scope.courses = [
+                   { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 25 },
+                   {name: 'How to Draft a Business Plan', category:'Business', timeline: 20, price: 35},
+                   {name: 'QuickStart AngularJs',category: "Devlopment", timeline: 30, price: 25}
+               ]
+               $scope.getTargetDate = function (days) {
+                   var now = new Date();
+                   return now.setDate(now.getDate() + days);
+               }
+              
+            })
+
+        }());
+    </script>
+</body>
+</html>

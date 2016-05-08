@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Modules</title>
+</head>
+<body>
+    //javascript module
+    <script>
+        var account = function () {
+            var bal = 0;
+            var deposite = function (money) {
+                bal += money;
+                console.log("balance after depossit", bal);
+            }
+            var wid = function (money) {
+                bal -= money;
+                console.log("balance", bal);
+            }
+            return{
+                deposit : deposite,
+            withdraw: wid
+            }
+        }
+        var a1= account();
+        a1.deposit(1000);
+        a1.withdraw(500);
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        .even{
+            background-color:gray;
+        }
+        .odd{
+            background:tan;
+        }
+    </style>
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>using ng-switch</h4>
+        <div ng-repeat="channel in ['None','Star Tv', 'Star World']" data-ng-cloak>
+            <input type="radio" name="lalu" value=" {{channel}}"  
+                   ng-model="data.whichChannel" ng-checked="$first"/>{{channel}}
+        </div>
+        <div ng-switch on="data.whichChannel">
+            <div data-ng-switch-when="Star Tv">
+                You are watching Star Tv
+            </div>
+            <div data-ng-switch-when="Star World">
+                You are watching Star World
+            </div>
+            <div data-ng-switch-default>
+                You are watching None
+            </div>
+        </div>
+      
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function ($scope) {
+               
+                $scope.data = {};
+            })
+
+        }());
+    </script>
+</body>
+</html>

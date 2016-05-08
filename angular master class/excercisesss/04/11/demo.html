@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-1.12.3.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <style>
+        ul.vender-modal-list {
+            float: left;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+            ul.vender-modal-list > li.vendor-modal-item {
+                float: left;
+                width: 100%;
+                background: #fff;
+                border: 2px solid #eeeeee;
+                
+                border-bottom: 0;
+                position: relative;
+                overflow: hidden;
+                padding: 20px;
+            }
+                ul.vender-modal-list > li.vendor-modal-item .vendor-logo{
+                    display:inline-block;
+                }
+        .premium-list-item .btn-get-quote {
+            width: 100%;
+            display: inline-block;
+            border: 1px solid #ff5700;
+            border-radius: 41px;
+            background: #ff5700;
+            color: #fff;
+            font-size: 17px;
+            font-weight:500;
+            text-transform: capitalize;
+        }
+        .btn-get-quote {
+            width: 100%;
+            display: inline-block;
+            border: 1px solid #ffc521;
+            border-radius: 41px;
+            background: #ffc521;
+            color: #fff;
+            font-size: 17px;
+            font-weight:500;
+            text-transform: capitalize;
+        }
+        .btn-get-quote:hover{
+           text-decoration:none;
+           color:#fff;
+        }
+        ul.vender-modal-list > li.vendor-modal-item .vendor-modal-title {
+            color: #4a4a4a;
+            font-size: 18px;
+            margin-top: 0;
+            margin-bottom: 5px;
+        }
+
+
+        ul.vender-modal-list > li.vendor-modal-item.premium-list-item::before {
+            content: '';
+            
+            background: #ff5700;
+            position: absolute;
+            top: -30px;
+            left: -35px;
+            color: #fff;
+            height: 61px;
+            width: 61px;
+            text-align: center;
+            line-height: 50px;
+            vertical-align: middle;
+            -ms-transform: rotate(45deg);
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            z-index: 9;
+        }
+        ul.vender-modal-list > li.vendor-modal-item.premium-list-item i.star {
+           
+            color: #fff;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            z-index: 99;
+        }
+        ul.vender-modal-list > li.vendor-modal-item:last-child{
+            border-bottom: 2px solid #eee;
+        }
+        ul.feature-list {
+            list-style-type: disc;
+            font-size: 15px;
+            padding-left: 15px;
+            float: left;
+            width: 100%;
+        }
+        ul.feature-list> li{
+
+        }
+
+    </style>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <ul class="vender-modal-list">
+            <li class="vendor-modal-item primum premium-list-item">
+                <div class="col-md-2 text-center">
+                    <img src="1.png" class="img-responsive vendor-logo" />
+
+                </div>
+                <div class="col-md-8">
+                    <h5 class="vendor-modal-title">ZipQuote</h5>
+                    <p>owest rates form <b>$29/mo - see if You Qualify</b></p>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-get-quote">get quote <i class="glyphicon glyphicon-chevron-right"></i> </a>
+                </div>
+                <i class="glyphicon glyphicon-star star"></i>
+            </li>
+            <li class="vendor-modal-item ">
+                <div class="col-md-2 text-center">
+                    <img src="2.png" class="img-responsive vendor-logo" />
+
+                </div>
+                <div class="col-md-8">
+                    <h5 class="vendor-modal-title">Mercury</h5>
+                    <ul class="feature-list">
+                        <li class="feature-list-item">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        </li>
+                        <li class="feature-list-item">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        </li>
+                        <li class="feature-list-item">
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <a href="#" class="btn btn-get-quote">get quote <i class="glyphicon glyphicon-chevron-right"></i></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+</body>
+</html>

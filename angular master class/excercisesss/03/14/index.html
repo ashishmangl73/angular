@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery-1.12.3.js"></script>
+</head>
+<body>
+    <h3>Data Binding</h3>
+  
+    <div>
+        task: <span id="task">Example Task</span><br />
+        Done: <input type="checkbox" id="statusCheck"/>
+    </div>
+    
+ 
+   
+    <script>
+        var taskData;
+
+        function init() {
+            taskData = {
+              task: "Deep Dive & Understand AngularJS",
+            status: true
+        }
+        render();
+
+            $("#statusCheck").on("change", onStatusChange);
+           
+        }
+        function render() {
+            $("#task").html(taskData.status);
+            $("#statusCheck").attr("checked", taskData.status);
+        }
+        function onStatusChange() {
+            var checked = $("#statusCheck").is(":checked");
+            console.log("status checked: " + checked);
+            console.log("status checked of data: " + taskData.status);
+            taskData.status = checked;
+        }
+        init();
+    </script>
+</body>
+</html>

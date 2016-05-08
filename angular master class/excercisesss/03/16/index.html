@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <title></title>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <h3>Data Binding</h3>
+  
+    <div data-ng-controller="AppCtrl as app">
+        first number: <input type="text" id="firstNumInput" data-ng-model="app.firstNum"/>
+        second number: <input type="text" id="secondNumInput" data-ng-model="app.secondNum" />
+        <button ng-click="app.setOperation('-')">Subtract</button>
+        <button ng-click="app.setOperation('+')">Add</button>
+        <button id="calculateBtn" data-ng-click="app.calculate(app.firstNum, app.secondNum)">Calculate</button>
+        <p> result: {{app.result}}</p>
+    </div>
+    
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [],
+                myApp = null,
+            myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function () {
+                this.operator = "+";
+                this.setOperation = function (operator) {
+                    this.operator = operator;
+                }
+                this.calculate = function (firstNum, secondNum) {
+                    if (this.operator === "+") {
+                        this.result = parseInt(firstNum) + parseInt(secondNum);
+                    }
+                    else if (this.operator === '-') {
+                        this.result = parseInt(firstNum) - parseInt(secondNum);
+                    }
+                }
+
+              
+            });
+        }());
+
+
+       
+        //var taskData;
+
+        //function init() {
+        //    taskData = {
+        //      task: "Deep Dive & Understand AngularJS",
+        //    status: true
+        //}
+        //render();
+
+        //    $("#statusCheck").on("change", onStatusChange);
+           
+        //}
+        //function render() {
+        //    $("#task").html(taskData.status);
+        //    $("#statusCheck").attr("checked", taskData.status);
+        //}
+        //function onStatusChange() {
+        //    var checked = $("#statusCheck").is(":checked");
+        //    console.log("status checked: " + checked);
+        //    console.log("status checked of data: " + taskData.status);
+        //    taskData.status = checked;
+        //}
+        //init();
+    </script>
+</body>
+</html>

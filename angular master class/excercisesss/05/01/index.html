@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>Array Filters</h4>
+        <h1>courses - {{courses.length}}</h1>
+        <button ng-click="limitVal =  5">5</button>
+        <button ng-click="limitVal = 10">10</button>
+        <input type="text" ng-model="searchFeild" />
+        Name: <input type="text" name="name" value=" "  ng-model="name"/> <br />
+        category: <input type="text" name="name" value=" " ng-model="category" />
+        price > 25: 
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Course Name</th>
+                    <th>Category</th>
+                    <th>Timeline</th>
+                    <th>Price</th>
+                    
+                </tr>
+            </thead>
+                <tr ng-repeat="course in courses | limitTo : limitVal | filter:lessThen25 | orderBy: 'price'">
+                <!-- <tr ng-repeat="course in courses | limitTo : limitVal | filter:{name:name, category:category}"> -->
+                <!--<tr ng-repeat="course in courses | limitTo : limitVal | filter:searchFeild"> -->
+                <td>{{$index+1}}</td>
+                <td>{{course.name }}</td>
+                <td>{{course.category }}</td>
+                <td> {{course.timeline}}</td>
+                <td>{{course.price}}</td>
+
+            </tr>
+        </table>
+        
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope, $timeout) {
+            
+               $scope.courses = [
+                   { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 25 },
+                   {name: 'How to Draft a Business Plan', category:'Business', timeline: 20, price: 35},
+                   { name: 'The Secrects of Drawing', category: "Lifestyle", timeline: 30, price: 49 },
+                   { name: 'Become a certified web Devloper', category: "Devlopment", timeline: 80, price: 199 },
+                   { name: 'How to Draft a Business Plan', category: 'Business', timeline: 20, price: 35 },
+                   { name: 'Body language for Entrepreneurs', category: "Business", timeline: 40, price: 45 },
+                   { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 25 },
+                   { name: 'How to Draft a Business Plan', category: 'Business', timeline: 20, price: 35 },
+                   { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 25 }, { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 25 },
+                   { name: 'How to Draft a Business Plan', category: 'Business', timeline: 20, price: 15 },
+                   { name: 'QuickStart AngularJs', category: "Devlopment", timeline: 30, price: 20 }
+               ]
+               $scope.getTargetDate = function (days) {
+                   var now = new Date();
+                   return now.setDate(now.getDate() + days);
+               }
+               $scope.limitVal = 12;
+               $scope.lessThen25 = function (item) {
+                   return item.price < 25;
+               }
+              
+            })
+
+        }());
+    </script>
+</body>
+</html>

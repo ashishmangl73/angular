@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        .even{
+            background-color:gray;
+        }
+        .odd{
+            background:tan;
+        }
+    </style>
+</head>
+<body>
+    <h3>binding Directives</h3>
+    <div data-ng-controller="AppCtrl">
+        <h4>using ng-include</h4>
+        <!--<div data-ng-include="'contact-table.html'"></div>-->
+        <!--<div data-ng-include="url"></div>
+        <div ng-include="" src="url"></div>-->
+
+        <input type="checkbox" name="name" value=" "  data-ng-model="viewState"/>
+        <div data-ng-include="viewFile()" onload="onPartialLoad()"></div>
+        
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function ($scope) {
+                $scope.contacts = [
+                    { firstname: "ashish", lastname: "mangla", favourite: true},
+                    { firstname: "varun", lastname: "mangla", favourite: true },
+                    { firstname: "Prasant", lastname: "Aggrawal", favourite: false },
+                    { firstname: "rupash", lastname: "pahadi", favourite: true },
+                    { firstname: "mama", lastname: "chacha", favourite: false }
+
+                ];
+                $scope.url = "contact-table.html";
+                $scope.viewFile = function () {
+                    if ($scope.viewState) {
+                        return "contact-list.html";
+                    }
+                    else {
+                        return "contact-table.html"
+                    }
+                }
+                $scope.onPartialLoad = function () {
+                    console.log($scope.viewFile() +  " loaded")
+                }
+            })
+
+        }());
+    </script>
+</body>
+</html>

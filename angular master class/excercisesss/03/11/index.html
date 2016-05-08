@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>Adding cal</h3>
+  
+    <div data-ng-controller="AppCtrl as app">
+
+        <p>{{app.employee.firstName + " " + app.employee.lastName + "-" + app.employee.occupation}} </p>
+    </div>
+    
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+            myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function () {
+                this.employee = {
+                    firstName: "Ashish",
+                    lastName: "Mangla",
+                    occupation: "web Developer"
+
+                };
+            });
+        }());
+    </script>
+</body>
+</html>

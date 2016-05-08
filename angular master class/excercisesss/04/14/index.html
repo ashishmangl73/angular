@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title>angular bootstrapping</title>
+    <style>
+       
+    </style>
+</head>
+<body ng-init="title = 'welcome'">
+    
+    <div data-ng-controller="AppCtrl">
+       {{title}}
+        <p>{{employee.name}}</p>
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope, $timeout) {
+               $scope.employee = {
+                   name: "john smith",
+                   designation : "Web Devloper"
+               }
+            })
+
+        }());
+    </script>
+</body>
+</html>

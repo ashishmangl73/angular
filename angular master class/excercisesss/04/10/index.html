@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>Managing states</h4>
+        <input type="checkbox" ng-checked="{{checkMe}}"/> Check me
+        <button ng-disabled="{{checkMe}}">Click Me</button>
+        <input type="text"  value=" Some Text" ng-readonly="{{checkMe}}"/>
+        <a ng-href="{{url}}">content</a>
+      
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope, $timeout) {
+            
+               $scope.checkMe = true;
+               $scope.url = "";
+               $timeout(function () {
+                   $scope.url = "http://google.com";
+
+               },3000)
+            })
+
+        }());
+    </script>
+</body>
+</html>

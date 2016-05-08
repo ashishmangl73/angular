@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+</head>
+<body>
+    <h3>binding Directives</h3>
+    <div data-ng-controller="AppCtrl">
+        First Name : <input type="text" name="name" value=" " id="firstName"ng-model="contacts[0].firstname"/>
+        Second Name : <input type="text" name="name" value=" " id="secondName" ng-model="contacts[0].lastname" />
+        
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function ($scope) {
+                $scope.contacts = [
+                    { firstname: "ashish", lastname: "mangla" },
+                    { firstname: "varun", lastname: "mangla" },
+                    { firstname: "Prasant", lastname: "Aggrawal" },
+                    { firstname: "rupash", lastname: "pahadi" },
+                    { firstname: "mama", lastname: "chacha" }
+
+                ];
+               
+            })
+
+        }());
+    </script>
+</body>
+</html>

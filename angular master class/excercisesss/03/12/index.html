@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title></title>
+</head>
+<body>
+   
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+<!--  <script>
+        var SecurityPerson = function () {
+            this.takecare = function () {
+                console.log("taking care !");
+            }
+
+        }
+        var apartment = function () {
+            var person = new SecurityPerson();
+            person.takecare();
+        }
+        apartment();
+
+    </script> -->
+
+    <script>
+        var messaging = function () {
+            this.send = function () {
+                console.log("sending message")
+            }
+        }
+        var account = function (msg) {
+            
+            var balance = 0;
+            var deposit = function (money) {
+                balance += money;
+                console.log(balance);
+                msg.send();
+            }
+        }
+        var withdraw = function(money){}
+    </script>
+</body>
+</html>

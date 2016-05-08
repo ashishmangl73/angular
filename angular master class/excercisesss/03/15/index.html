@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <title></title>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <h3>Data Binding</h3>
+  
+    <div data-ng-controller="AppCtrl">
+        task: <span id="task">{{taskData.task}}</span><br />
+        Done: <input type="checkbox" id="statusCheck" data-ng-model="taskData.status"
+       data-ng-click="onStatusClick()" />
+    </div>
+    
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [],
+                myApp = null,
+                  taskData = {
+                      task: "Deep Dive & Understand AngularJS",
+                      status: true
+                  };
+
+            myApp = angular.module(name, requires);
+            myApp.controller("AppCtrl", function ($scope) {
+                $scope.taskData = taskData;
+                $scope.onStatusClick = function () {
+                    console.log("status : " + taskData.status);
+                }
+            });
+        }());
+
+
+       
+        //var taskData;
+
+        //function init() {
+        //    taskData = {
+        //      task: "Deep Dive & Understand AngularJS",
+        //    status: true
+        //}
+        //render();
+
+        //    $("#statusCheck").on("change", onStatusChange);
+           
+        //}
+        //function render() {
+        //    $("#task").html(taskData.status);
+        //    $("#statusCheck").attr("checked", taskData.status);
+        //}
+        //function onStatusChange() {
+        //    var checked = $("#statusCheck").is(":checked");
+        //    console.log("status checked: " + checked);
+        //    console.log("status checked of data: " + taskData.status);
+        //    taskData.status = checked;
+        //}
+        //init();
+    </script>
+</body>
+</html>

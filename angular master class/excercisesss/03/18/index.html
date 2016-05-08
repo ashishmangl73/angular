@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="myApp">
+<head>
+    <title></title>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+</head>
+<body>
+    <h3>Data Binding</h3>
+   
+    <div data-ng-controller="AppCtrl">
+        {{"this is uppercase filter" | uppercase}}
+     
+       
+    </div>
+    
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [],
+                myApp = null,
+            myApp = angular.module(name, requires);
+        
+            myApp.controller("AppCtrl", function ($scope) {
+            })
+              
+        }());
+    </script>
+</body>
+</html>

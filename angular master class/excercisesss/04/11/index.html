@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" data-ng-app="myApp">
+<head>
+    <title></title>
+    <style>
+        .strick{
+            text-decoration: line-through;
+        }
+        .bold{
+            font-weight:bold;
+        }
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div data-ng-controller="AppCtrl">
+        <h4>Ng_style</h4>
+       <button ng-click="styles={'color': 'red'}">set color</button>
+        <button ng-click="styles={'font-weight': 'Bold'}">Bold</button>
+        <button ng-click="styles={'font-style': 'Italic'}">Bold</button>
+        <p ng-style="styles">this text will be styled using ng-style directive</p>
+
+
+        <input type="text" name="name" value=" " ng-model="style"  placeholder="type: bold strick red"/>
+        <p class="" ng-class="style">lkli iiopimuopiuopi</p>
+
+        <input type="checkbox" name="name" value=" "  ng-model="deleted"/> Deleted (apply strick class)<br />
+        <input type="checkbox" name="name" value=" " ng-model="inportant" /> Deleted (apply bold class)<br />
+        <input type="checkbox" name="name" value=" " ng-model="error" /> Deleted (apply red class)<br />
+        <input type="checkbox" name="name" value=" " />
+        <p ng-class="{strick: deleted, bold:inportant, red:error}"  >map syntaxt Exaample</p>
+
+        <p ng-class="['strick','bold','red']">IN array syntax</p>
+    </div>
+    <script src="jquery-1.12.3.js"></script>
+    <script src="angular.js"></script>
+    <script>
+        (function () {
+            var name = "myApp",
+                requires = [];
+           myApp = angular.module(name, requires);
+           myApp.controller("AppCtrl", function ($scope, $timeout) {
+            
+               
+            })
+
+        }());
+    </script>
+</body>
+</html>
