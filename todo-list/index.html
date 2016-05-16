@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="todo">
+<head>
+    <title></title>
+    <style>
+        .done-true{
+            text-decoration:line-through;
+        }
+        .tasks-list{
+            padding:0;
+            list-style:disc;
+            margin:0;
+        }
+        .task-item{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <div ng-controller="todoController">
+        <h4>Tasks remaining {{remaining()}} out Of {{todoList.length}}</h4>
+        <ul class="tasks-list">
+            <li ng-repeat="list in todoList" class="task-item">{{$index+1}} 
+            <label class="chechbox">
+                <input type="checkbox" ng-model="list.done" />
+                <span class="done-{{list.done}}">{{list.task}}</span>
+            </label>
+            </li>
+        </ul>
+        
+        
+        <input type="text" name="name" value=" " ng-model="inputTask"/>
+        
+        <button ng-click="addTask()">Add new task</button> 
+      
+    </div>
+
+    <script src="angular.js"></script>
+    <script src="jquery-1.12.3.js"></script>
+    <script>
+        (function () {
+
+            var name = "todo",
+               requires = []
+            var todo = angular.module(name, requires);
+            todo.controller('todoController', function ($scope) {
+                $scope.todoList = [
+                    { task: 'task1', done: false },
+                    { task: 'task2',done: true }
+                ];
+                $scope.addTask = function () {
+                    var a = { task: $scope.inputTask, done:false};
+                    $scope.todoList.push(a);
+                    $scope.inputTask = "";
+                }
+                $scope.remaining = function () {
+                    var count = 0;
+                    angular.forEach($scope.todoList, function (list) {
+                        count += list.done ? 0 : 1;
+                    })
+                    return count;
+                }
+            })
+
+            
+        }())
+    </script>
+</body>
+</html>
